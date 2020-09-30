@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 import UserList from './components/UsersList';
 
@@ -8,19 +10,14 @@ function App() {
 
     return (
         <BrowserRouter>
-            <nav>
-                <ul>
-                    <li><NavLink to="/" activeClass="active">Home</NavLink></li>
-                    <li><NavLink to="/users" activeClass="active">Users</NavLink></li>
-                </ul>
-            </nav>
+            <Navbar />
             <Switch>
                 <Route path="/users">
                     <UserList />
                 </Route>
 
                 <Route path="/">
-                    <h1>My Home Page</h1>
+                    <Home />
                 </Route>
             </Switch>
         </BrowserRouter>
