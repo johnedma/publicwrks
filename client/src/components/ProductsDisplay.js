@@ -28,22 +28,27 @@ class ProductsDisplay extends React.Component {
         console.log(`PRODUCTDISPLAY: ${this.props.art}`);
         return (
             <div>
-                {this.props.art.slice(0, 10).map(art => {
-                    return (
-                        <NavLink to={`/art/${art.id}`}>
+                {this.props.art
+                    // .slice(0, 10)
+                    .sort(() => Math.random() - 0.5)
+                    .map(art => {
+                        return (
+                            <NavLink to={`/art/${art.id}`}>
 
-                            <ProductCard art={art} />
-                        </NavLink>
-                    )
-                })}
-                {this.props.art.slice(30, 40).map(art => {
-                    return (
-                        <NavLink to={`/art/${art.id}`}>
+                                <ProductCard art={art} key={art.id} />
+                            </NavLink>
+                        )
+                    })}
+                {/* {this.props.art.slice(30, 40)
+                    .sort(() => Math.random() - 0.5)
+                    .map(art => {
+                        return (
+                            <NavLink to={`/art/${art.id}`}>
 
-                            <ProductCard art={art} />
-                        </NavLink>
-                    )
-                })}
+                                <ProductCard art={art} />
+                            </NavLink>
+                        )
+                    })} */}
             </div>
         );
     }
