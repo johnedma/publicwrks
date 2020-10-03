@@ -37,9 +37,9 @@ export const removeFromCart = (item) => ({
 //     id
 // });
 
-export const decrementFromCart = (id) => ({
+export const decrementFromCart = (item) => ({
     type: 'DECREMENT',
-    id
+    item
 })
 
 export const clearCart = () => ({

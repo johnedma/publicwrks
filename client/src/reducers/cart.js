@@ -13,31 +13,35 @@ const cartReducer = (state = cartDefaultState, action) => {
     switch (action.type) {
 
         case 'ADD_TO_CART':
-            return {
-                ...state,
-                cart: [...state.cart, action.item],
-                total: state.total + action.item.price
-                // const addedItem = state.items.find((item) => action.id === item.id);
-                // const existingItem = state.cart.find((existingItem) => action.id === existingItem.id);
+            // return {
+            //     ...state,
+            //     cart: [...state.cart, action.item],
+            //     total: state.total + action.item.price
+            // const addedItem = state.items.find((item) => action.id === item.id);
+            let addedItem = action.item;
+            // const existingItem = state.cart.find((existingItem) => action.id === existingItem.id);
+            const existingItem = state.cart.find((existingItem) => action.item.id === existingItem.id);
 
-                // if (existingItem) {
-                //     addedItem.quantity += 1;
-                //     return {
-                //         ...state,
-                //         total: state.total + addedItem.price
-                //     }
-                // } else {
-                //     addedItem.quantity = 1;
-                //     const newTotal = state.total + addedItem.price
-                //     return {
-                //         ...state,
-                //         cart: [...state.cart, addedItem],
-                //         total: newTotal
-                //     }
+            if (existingItem) {
+                addedItem.quantity += 1;
+                return {
+                    ...state,
+                    total: state.total + addedItem.price
+                }
+            } else {
+                addedItem.quantity = 1;
+                const newTotal = state.total + addedItem.price
+                return {
+                    ...state,
+                    cart: [...state.cart, addedItem],
+                    total: newTotal
+                }
             };
         case 'REMOVE_FROM_CART':
-            const itemToRemove = state.cart.find((item) => action.id === item.id)
-            const removeItem = state.cart.filter((item) => action.id !== item.id);
+            const itemToRemove = state.cart.find((item) => action.item.id === item.id)
+            const removeItem = state.cart.filter((item) => action.item.id !== item.id);
+            // const itemToRemove = state.cart.find((item) => action.id === item.id)
+            // const removeItem = state.cart.filter((item) => action.id !== item.id);
 
             const newTotal = state.total - (itemToRemove.price * itemToRemove.quantity)
             return {
@@ -46,8 +50,8 @@ const cartReducer = (state = cartDefaultState, action) => {
                 total: newTotal
             }
         case 'DECREMENT':
-            const item = state.cart.find((item) => action.id === item.id);
-
+            let item = state.cart.find((item) => action.item.id === item.id);
+            debugger
             if (item.quantity > 1) {
                 item.quantity -= 1;
                 const newTotal = state.total - item.price

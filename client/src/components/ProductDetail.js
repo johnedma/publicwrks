@@ -23,6 +23,12 @@ const ProductDetail = ({ match }) => {
         // type: 'Shirt',
         price: 45,
         id: product.id,
+        image: product.imageUrl,
+        title: product.title,
+        artist: product.artist,
+        artistId: product.artistId,
+        dated: product.dated,
+        description: product.description
         // when rendering cart/checkout component
         // call let products = useSelector((state) => state.arte)
         // then useSelector to get cart state in store

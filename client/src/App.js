@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import UserList from './components/UsersList';
 import ProductDetail from './components/ProductDetail'
 import NotFound from './components/NotFound';
+import CartPage from './components/CartPage';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -44,7 +45,7 @@ function App() {
                 <Route path="/art/:id" exact component={ProductDetail} />
                 {/* <ProductDetail />
                 </Route> */}
-
+                <Route path='/cart' component={CartPage} />
                 <Route path="/" exact component={Home} />
                 <Route component={NotFound} />
                 {/* <Home />
