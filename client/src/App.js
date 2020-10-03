@@ -6,6 +6,7 @@ import Home from './components/Home';
 import LoginPanel from './components/Login';
 import Navbar from './components/Navbar';
 import UserList from './components/UsersList';
+import ProductDetail from './components/ProductDetail'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -40,10 +41,13 @@ function App() {
                 <Route path="/users">
                     <UserList />
                 </Route>
-
-                <Route path="/">
-                    <Home />
+                <Route path="/art/:id">
+                    <ProductDetail />
                 </Route>
+
+                <Route path="/" component={Home} />
+                {/* <Home />
+                </Route> */}
             </Switch>
         </BrowserRouter>
     );

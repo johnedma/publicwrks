@@ -1,5 +1,5 @@
-const { commerce } = require('faker');
-const { Pokemon } = require('./models');
+// const { commerce } = require('faker');
+const { Art } = require('./models');
 
 function random100() {
     return Math.floor(Math.random() * 100) + 1;
@@ -39,6 +39,21 @@ async function list() {
         attributes: ['imageUrl', 'name', 'updatedAt', 'id'],
     });
 }
+async function fullyLoaded() {
+    const art = await Art.findAll();
+    console.log(art[0])
+    return art
+}
+
+async function byCollection(artistId) {
+    const artist = await
+        Art.findAll({
+            where: {
+                artistId
+            }
+        });
+    return artist
+}
 
 async function one(id) {
     const pokemon = await Pokemon.findByPk(id, {
@@ -72,4 +87,6 @@ module.exports = {
     create,
     list,
     one,
+    byCollection,
+    fullyLoaded
 };

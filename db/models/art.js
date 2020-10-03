@@ -5,9 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     artist: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
-    dated: DataTypes.STRING
+    dated: DataTypes.STRING,
+    artistId: DataTypes.INTEGER
   }, {});
-  Art.associate = function(models) {
+  Art.associate = function (models) {
     // associations can be defined here
   };
   return Art;

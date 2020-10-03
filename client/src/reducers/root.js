@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import authentication from './authentication';
-
+import arte from './art'
 const rootReducer = combineReducers({
     authentication,
-    //   pokemon,
+    arte
 });
 
 export default rootReducer;

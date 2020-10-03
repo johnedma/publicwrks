@@ -1,18 +1,23 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+// import { INET } from 'sequelize/types';
 import shirt from './../imgs/blkshirt.png'
+import ProductDetail from './ProductDetail';
+// useParams
 
-const ProductCard = () => {
+const ProductCard = ({ art }) => {
+    // if (prop)
     return (
         <div className='containproduct'>
             {/* <div className='containmedium' style={{ backgroundImage: "url(" + shirt + ")" }} > */}
             <div className='containmedium'  >
                 {/* <img src={shirt} /> */}
-                <span>
-                    <img className="art" src="https://collectionapi.metmuseum.org/api/collection/v1/iiif/649924/1459018/main-image" />
-                </span>
+                {/* <span> */}
+                <img className="art" src={`${art.imageUrl}`} />
+                {/* </span> */}
             </div>
 
-            <h3>Viennese Café: On the Terrace (Wiener Café: Auf der Terasse)</h3>
+            <h3>{`${art.title}`}</h3>
             {/* <div>$45</div> */}
 
         </div>
@@ -20,3 +25,13 @@ const ProductCard = () => {
 };
 
 export default ProductCard;
+
+// PRIORITY IS HOME PAGE PRODUCTDISPLAY THAT HAS A ARTIST AND TYPE PROP PASSED IN
+// PRODUCT CARD THAT ACCEPTS ART AND TYPE PROP FROM DISPLAY ARE WRAPPED IN NAV
+// WHEN CLICKED PRODUCT CARD NAVS to  <ProductDetail= `art/${art.id}/${product.type}`
+// productdetail needs a getType and call getArt if art prop is null
+// get type has a id name price
+// ProductDetail should render product and addtocart and quantity
+// finally is cart that checksout and pushes order and returns a confirmation number
+
+// show all from an artists as to = `/artist/${art.artistId} with a fetch for all that artist stuff
