@@ -24,8 +24,8 @@ const ProductDetail = () => {
             <img src={`${product.imageUrl}`} />
             {/* product custo div*/}
             {/* product descrip and price div inline with custo div + add to card  */}
-            <button onClick={() => dispatch(addToCart(order))}>+</button>
-            <button onClick={() => dispatch(removeFromCart(order))}>-</button>
+            {/* <button onClick={() => dispatch(addToCart(order))}>+</button>
+            <button onClick={() => dispatch(removeFromCart(order))}>-</button> */}
         </div>
     );
 };
