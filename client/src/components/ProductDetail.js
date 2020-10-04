@@ -10,12 +10,20 @@ const ProductDetail = ({ match }) => {
     // let { id } = useParams()
     // const art = useSelector((state, id) => state.arte.id === id)
     let products = useSelector((state) => state.arte)
+    let product = products.find(({ id }) => id == match.params.id);
+    // !!!!!!!!!!!!!!filter by artist id for recs div to render
+
+
+    // let recs = products.find(({ id }) => id == match.params.id);
+    // .sort(() => Math.random() - 0.5)
+    // console.log(recs)
+
+    // const removeItem = products.filter((product) => action.item.id !== item.id);
+
     // debugger
     // const dispatch = useDispatch()
     // id -= 1
     // const product = art[id]
-    let product = products.find(({ id }) => id == match.params.id);
-    console.log(product)
 
     // !!!!!!!!!!!!!!!!pass in obj
     let item = {

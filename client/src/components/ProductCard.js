@@ -6,20 +6,21 @@ import ProductDetail from './ProductDetail';
 // useParams
 
 const ProductCard = ({ art }) => {
-    // if (prop)
     return (
-        <div className='containproduct'>
-            {/* <div className='containmedium' style={{ backgroundImage: "url(" + shirt + ")" }} > */}
-            <div className='containmedium'  >
-                {/* <img src={shirt} /> */}
-                {/* <span> */}
-                <img className="art" src={`${art.imageUrl}`} />
-                {/* </span> */}
+        <div className='product-card'>
+            <div className='product-card-shirt'>
+                <img
+                    src={shirt}
+                    alt="T-Shirt"
+                />
+                <div className='product-card-shirt-art'>
+                    <img
+                        src={art.imageUrl}
+                        alt={`${art.title} by ${art.artist}`}
+                    />
+                </div>
             </div>
-
-            <h3>{`${art.title}`}</h3>
-            {/* <div>$45</div> */}
-
+            <p>{`${art.title}`}</p>
         </div>
     );
 };

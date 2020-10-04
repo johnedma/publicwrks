@@ -17,7 +17,7 @@ const CartBox = () => {
   const dispatch = useDispatch();
   let cartInfo = useSelector(state => state.cart.cart);
   let total = useSelector(state => state.cart.total);
-  debugger
+  // debugger
   // let itemQuantity = cartInfo
   //   .map((item) => item.quantity)
   //   .reduce((item, total) => item + total, 0);

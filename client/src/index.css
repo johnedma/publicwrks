@@ -1,58 +1,84 @@
 /* TODO Add site wide styles */
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Nunito:wght@400;900&display=swap');
 
-h1{
-    font-family: 'Nunito', sans-serif;
-    font-size: 2em;
+*,
+*:before,
+*:after {
+   box-sizing: border-box;
 }
-h2{
-    font-family: 'Lato', sans-serif;
-}
+
+html,
 body {
-    padding: 2em;
+   min-width: 320px;
 }
-/*
-font-family: 'Lato', sans-serif;
-font-family: 'Nunito', sans-serif; */
-.active{
-    text-decoration: none;
+
+h1 {
+   font-family: 'Nunito', sans-serif;
+   font-size: 2em;
 }
-a.active:visited{
+
+h2 {
+   font-family: 'Lato', sans-serif;
+   background: crimson;
+   padding: 1em;
+   color: white;
+}
+
+body {
+   padding: 2em;
+}
+
+.active {
+   text-decoration: none;
+}
+
+a.active:visited {
    color: black;
 }
+
 img {
-    max-width: 100%;
-    max-height: 100%;
+   max-width: 100%;
+   max-height: 100%;
 }
 
-.containmedium{
-    width: 400px;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto
-}
-.containproduct{
-    width: 500px;
-    height: 500px;
+.products-list {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
 }
 
-h2{
-    background: crimson;
-    padding: 1em;
-    color: white;
+.products-list-item {
+   display: block;
 }
 
-/* .containmedium{
-    position: relative;
+.products-list-item a {
+   display: inline-block;
+   width: 100%;
+   max-width: 500px;
 }
-.containmedium span {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-    background: url(./imgs/blkshirt.png) no-repeat center center;
 
-  } */
+.product-card img {
+   display: block;
+}
+
+.product-card-shirt {
+   position: relative;
+}
+
+.product-card-shirt-art {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   margin: auto;
+   width: 32.5%;
+   height: 45%;
+}
+
+.product-card-shirt-art img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   object-position: center top;
+}
