@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-// import { INET } from 'sequelize/types';
 import shirt from './../imgs/blkshirt.png'
 import ProductDetail from './ProductDetail';
 // useParams
@@ -20,7 +19,7 @@ const ProductCard = ({ art }) => {
                     />
                 </div>
             </div>
-            <p>{`${art.title}`}</p>
+            <h2>{`${art.title}`}</h2>
         </div>
     );
 };

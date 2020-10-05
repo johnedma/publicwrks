@@ -22,7 +22,11 @@ h2 {
    background: crimson;
    padding: 1em;
    color: white;
+   font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
 }
+
 
 body {
    padding: 2em;
@@ -57,6 +61,15 @@ img {
    max-width: 500px;
 }
 
+.product-card{
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    margin: 2em;
+    overflow: hidden;
+    /* padding: 2em; */
+}
+
 .product-card img {
    display: block;
 }
@@ -81,4 +94,13 @@ img {
    height: 100%;
    object-fit: contain;
    object-position: center top;
+}
+
+.item.columns {
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    margin: 2em;
+    overflow: hidden;
+    padding: 1em;
 }

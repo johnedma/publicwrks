@@ -9,7 +9,7 @@ const cartDefaultState = {
 }
 
 const cartReducer = (state = cartDefaultState, action) => {
-    debugger
+    // debugger
     switch (action.type) {
 
         case 'ADD_TO_CART':

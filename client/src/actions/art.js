@@ -1,11 +1,11 @@
 // export const getArtByArtist = artist => console.log(`${This dont do shit}`);
 export const LOAD_ART = 'LOAD_ART'
 
-
 const loadArt = art => ({
     type: LOAD_ART,
     art,
 });
+
 export const SET_ARTIST = "SET_ARTIST"
 
 
@@ -87,31 +87,3 @@ export const getArt = () => {
         //         }
         //     };
         // };
-
-    // export const getPokemon = () => async (dispatch, getState) => {
-    //     const { authentication: { token } } = getState();
-    //     const response = await fetch(`${ baseUrl } /pokemon`, {
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //     });
-
-    //     if (response.ok) {
-    //       const list = await response.json();
-    //       dispatch(load(list));
-    //     }
-    //   };
-
-    //   export const getPokemonTypes = () => async (dispatch, getState) => {
-    //     const { authentication: { token } } = getState();
-    //     const response = await fetch(`${baseUrl}/pokemon/types`, {
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //     });
-
-    //     if (response.ok) {
-    //       const list = await response.json();
-    //       dispatch(loadTypes(list));
-    //     }
-    //   };

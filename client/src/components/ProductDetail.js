@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import AddToCart from './AddToCart';
+import ProductCard from './ProductCard';
 
 const ProductDetail = ({ match }) => {
     useEffect(() => {
@@ -9,7 +10,9 @@ const ProductDetail = ({ match }) => {
     }, [match.params.id])
     // let { id } = useParams()
     // const art = useSelector((state, id) => state.arte.id === id)
+
     let products = useSelector((state) => state.arte)
+    if (Object.entries(products).length === 0) return null
     let product = products.find(({ id }) => id == match.params.id);
     // !!!!!!!!!!!!!!filter by artist id for recs div to render
 
@@ -46,13 +49,19 @@ const ProductDetail = ({ match }) => {
     if (!product) return null
 
     return (
-        <div>
-            <img src={`${product.imageUrl}`} />
-            {product.description}
-            {product.title}
-            {/* {product.descripion} */}
-            {product.dated}
-            <AddToCart item={item} />
+        <div className="columns">
+            <div className="column">
+
+                {/* <img src={`${product.imageUrl}`} /> */}
+                <ProductCard art={product} />
+            </div>
+            <div className="column">
+                <h1> {product.description}</h1>
+                {product.title}
+                {/* {product.descripion} */}
+                {product.dated}
+                <AddToCart item={item} />
+            </div>
             {/* product custo div*/}
             {/* product descrip and price div inline with custo div + add to card  */}
             {/* <button onClick={() => dispatch(addToCart(order))}>+</button>

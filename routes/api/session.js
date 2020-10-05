@@ -2,7 +2,6 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check, validationResult } = require('express-validator');
 const UserRepository = require('../../db/user-repository')
-// const PlayerRepository = require('../../db/player-repository');
 const { authenticated, generateToken } = require('./security-utils');
 
 const router = express.Router();

@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 
-export const SET_USER = "pokedex/authentication/SET_USER";
-export const REMOVE_USER = "pokedex/authentication/REMOVE_USER";
+export const SET_USER = "SET_USER";
+export const REMOVE_USER = "REMOVE_USER";
 
 
 

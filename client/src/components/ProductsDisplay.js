@@ -24,8 +24,7 @@ class ProductsDisplay extends React.Component {
     // debugger
 
     render() {
-        if (!Object.entries(this.props.art).length)
-            return null
+        if (Object.entries(this.props.art).length === 0) return null
 
         console.log(`PRODUCTDISPLAY: ${this.props.art}`);
 
