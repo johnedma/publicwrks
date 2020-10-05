@@ -1,5 +1,20 @@
 # Solo React Redux Project - PublicWRKS
 
+## Getting started
+
+1. Clone this repository
+2. Install dependencies ( `npm install` in root and /client)
+3. Create a **.env** file based on the example with proper settings for your development environment
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file with CREATEDB privileges
+
+5. Run
+
+   * `npm run db:create`
+   * `npm run db:migrate`
+   * `npm run db:seed:all`
+   * `npm start`
+   * reference root package.json if scripts don't run properly
+
 # Features
 
 ## User Stories

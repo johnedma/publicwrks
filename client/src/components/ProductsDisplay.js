@@ -25,30 +25,28 @@ class ProductsDisplay extends React.Component {
 
     render() {
         if (Object.entries(this.props.art).length === 0) return null
+
         console.log(`PRODUCTDISPLAY: ${this.props.art}`);
+
         return (
-            <div>
-                {this.props.art.slice(0, 10).map(art => {
-                    return (
-                        <NavLink to={`/art/${art.id}`}>
-
-                            <ProductCard art={art} />
-                        </NavLink>
-                    )
-                })}
-                {this.props.art.slice(30, 40).map(art => {
-                    return (
-                        <NavLink to={`/art/${art.id}`}>
-
-                            <ProductCard art={art} />
-                        </NavLink>
-                    )
-                })}
-            </div>
+            <ul className='products-list'>
+                {this.props.art
+                    .sort(() => Math.random() - 0.5)
+                    // .slice(0, 10)
+                    .map(art => {
+                        return (
+                            <li className='products-list-item'>
+                                <NavLink to={`/art/${art.id}`}>
+                                    <ProductCard art={art} key={art.id} />
+                                </NavLink>
+                            </li>
+                        )
+                    })}
+            </ul>
         );
     }
-
 }
+
 const mapStateToProps = (state) => {
     return {
         art: state.arte

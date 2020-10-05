@@ -997,11 +997,3 @@ parsed.forEach(obj => {
 });
 
 console.log(parsed, count);
-
-// before class
-// add 2 more historical artists or I like
-// model inits
-// product display find 10 by collection (random int selection later)
-// render 3 model display components to home page to render art on *shirts *mugs and *phonecases and masks and pillows
-// product detail simple layout and checkout functionality
-// unsplash models wearing

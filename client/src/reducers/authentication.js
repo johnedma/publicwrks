@@ -1,4 +1,3 @@
-// via poke hooks2a
 import {
     SET_USER,
     REMOVE_USER,

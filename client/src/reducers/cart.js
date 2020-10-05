@@ -1,41 +1,60 @@
-const cartReducer = (state = [], action) => {
+// import { useSelector } from "react-redux";
+
+// let items = useSelector((state) => state.arte)
+
+const cartDefaultState = {
+    // items: {},
+    cart: [],
+    total: 0
+}
+
+const cartReducer = (state = cartDefaultState, action) => {
+    // debugger
     switch (action.type) {
 
         case 'ADD_TO_CART':
-            const addedPhone = state.phones.find((phone) => action.id === phone.id);
-            const existingPhone = state.cart.find((existingPhone) => action.id === existingPhone.id);
+            // return {
+            //     ...state,
+            //     cart: [...state.cart, action.item],
+            //     total: state.total + action.item.price
+            // const addedItem = state.items.find((item) => action.id === item.id);
+            let addedItem = action.item;
+            // const existingItem = state.cart.find((existingItem) => action.id === existingItem.id);
+            const existingItem = state.cart.find((existingItem) => action.item.id === existingItem.id);
 
-            if (existingPhone) {
-                addedPhone.quantity += 1;
+            if (existingItem) {
+                addedItem.quantity += 1;
                 return {
                     ...state,
-                    total: state.total + addedPhone.price
+                    total: state.total + addedItem.price
                 }
             } else {
-                addedPhone.quantity = 1;
-                const newTotal = state.total + addedPhone.price
+                addedItem.quantity = 1;
+                const newTotal = state.total + addedItem.price
                 return {
                     ...state,
-                    cart: [...state.cart, addedPhone],
+                    cart: [...state.cart, addedItem],
                     total: newTotal
                 }
             };
         case 'REMOVE_FROM_CART':
-            const phoneToRemove = state.cart.find((phone) => action.id === phone.id)
-            const removePhone = state.cart.filter((phone) => action.id !== phone.id);
+            const itemToRemove = state.cart.find((item) => action.item.id === item.id)
+            const removeItem = state.cart.filter((item) => action.item.id !== item.id);
+            // const itemToRemove = state.cart.find((item) => action.id === item.id)
+            // const removeItem = state.cart.filter((item) => action.id !== item.id);
 
-            const newTotal = state.total - (phoneToRemove.price * phoneToRemove.quantity)
+            const newTotal = state.total - (itemToRemove.price * itemToRemove.quantity)
             return {
                 ...state,
-                cart: removePhone,
+                cart: removeItem,
                 total: newTotal
             }
         case 'DECREMENT':
-            const phone = state.cart.find((phone) => action.id === phone.id);
-
-            if (phone.quantity > 1) {
-                phone.quantity -= 1;
-                const newTotal = state.total - phone.price
+            let item = state.cart.find((item) => action.item.id === item.id);
+            debugger
+            if (item.quantity > 1) {
+                item.quantity -= 1;
+                const newTotal = state.total - item.price
                 return {
                     ...state,
                     total: newTotal
@@ -54,4 +73,4 @@ const cartReducer = (state = [], action) => {
     }
 }
 
-export default phonesReducer;
+export default cartReducer;

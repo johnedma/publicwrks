@@ -1,27 +1,67 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import AddToCart from './AddToCart';
+import ProductCard from './ProductCard';
 
-const ProductDetail = () => {
-
-    let { id } = useParams()
+const ProductDetail = ({ match }) => {
+    useEffect(() => {
+        // console.log(match);
+    }, [match.params.id])
+    // let { id } = useParams()
     // const art = useSelector((state, id) => state.arte.id === id)
-    const art = useSelector((state) => state.arte)
-    const dispatch = useDispatch()
-    id -= 1
-    const product = art[id]
-    let order = {
-        quantity: 1,
-        type: 'Shirt',
-        price: 45
-    }
 
-    // console.log(id)
+    let products = useSelector((state) => state.arte)
+    if (Object.entries(products).length === 0) return null
+    let product = products.find(({ id }) => id == match.params.id);
+    // !!!!!!!!!!!!!!filter by artist id for recs div to render
+
+
+    // let recs = products.find(({ id }) => id == match.params.id);
+    // .sort(() => Math.random() - 0.5)
+    // console.log(recs)
+
+    // const removeItem = products.filter((product) => action.item.id !== item.id);
+
     // debugger
+    // const dispatch = useDispatch()
+    // id -= 1
+    // const product = art[id]
+
+    // !!!!!!!!!!!!!!!!pass in obj
+    let item = {
+        quantity: 1,
+        // type: 'Shirt',
+        price: 45,
+        id: product.id,
+        image: product.imageUrl,
+        title: product.title,
+        artist: product.artist,
+        artistId: product.artistId,
+        dated: product.dated,
+        description: product.description
+        // when rendering cart/checkout component
+        // call let products = useSelector((state) => state.arte)
+        // then useSelector to get cart state in store
+        // let items = useSelector((state) => state.cart)
+        // cart has cart prop of cart which is an array of items and total which is a number
+    }
+    if (!product) return null
 
     return (
-        <div>
-            <img src={`${product.imageUrl}`} />
+        <div className="columns">
+            <div className="column">
+
+                {/* <img src={`${product.imageUrl}`} /> */}
+                <ProductCard art={product} />
+            </div>
+            <div className="column">
+                <h1> {product.description}</h1>
+                {product.title}
+                {/* {product.descripion} */}
+                {product.dated}
+                <AddToCart item={item} />
+            </div>
             {/* product custo div*/}
             {/* product descrip and price div inline with custo div + add to card  */}
             {/* <button onClick={() => dispatch(addToCart(order))}>+</button>

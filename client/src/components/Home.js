@@ -36,7 +36,7 @@ class Home extends React.Component {
         return (
             <>
 
-                <ProductsDisplay artistId={1} />
+                <ProductsDisplay />
                 {/* <ProductsDisplay artistId={2} />
             <ProductsDisplay artistId={3} /> */}
                 {/* <ProductsDisplay type={type.mug} artist={artists.artistId[1]} />
@@ -55,7 +55,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getArt: () => dispatch(getArt())
-        //   createPokemon: (pokemon) => dispatch(createPokemon(pokemon)),
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

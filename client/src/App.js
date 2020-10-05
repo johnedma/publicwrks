@@ -7,6 +7,8 @@ import LoginPanel from './components/Login';
 import Navbar from './components/Navbar';
 import UserList from './components/UsersList';
 import ProductDetail from './components/ProductDetail'
+import NotFound from './components/NotFound';
+import CartPage from './components/CartPage';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -29,7 +31,6 @@ function App() {
     // if (!loaded) {
     //   return null;
     // }
-
     return (
         <BrowserRouter>
             <Navbar />
@@ -38,14 +39,15 @@ function App() {
                 <PrivateRoute path="/admin"
                     needLogin={needLogin}
                     component={Dashboard} />
-                <Route path="/users">
-                    <UserList />
-                </Route>
-                <Route path="/art/:id">
-                    <ProductDetail />
-                </Route>
-
-                <Route path="/" component={Home} />
+                <Route path="/users" component={UserList} />
+                {/* <UserList />
+                </Route> */}
+                <Route path="/art/:id" exact component={ProductDetail} />
+                {/* <ProductDetail />
+                </Route> */}
+                <Route path='/cart' component={CartPage} />
+                <Route path="/" exact component={Home} />
+                <Route component={NotFound} />
                 {/* <Home />
                 </Route> */}
             </Switch>
