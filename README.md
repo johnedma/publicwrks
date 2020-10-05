@@ -24,7 +24,7 @@
 * As a user I would like to purchse available art pieces across multiple print mediums.
 * As a user I would like a secure checkout experiecnce with a trusted/recognizable name.
 
-## Features MVP
+## Features (In Progress)
 
 * Admin log-in with dashboard for orders and CRUD functionality for products
 * Add to cart and checkout functionality (secure checkout via 3rd party api)
