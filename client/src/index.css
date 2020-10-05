@@ -15,11 +15,13 @@ body {
 h1 {
    font-family: 'Nunito', sans-serif;
    font-size: 2em;
+   font-weight: 900;
 }
 
 h2 {
    font-family: 'Lato', sans-serif;
-   background: crimson;
+   /* background: crimson; */
+   background: #f65421ad;
    padding: 1em;
    color: white;
    font-weight: bold;
@@ -29,7 +31,7 @@ h2 {
 
 
 body {
-   padding: 2em;
+   padding: 3em;
 }
 
 .active {
@@ -49,6 +51,12 @@ img {
    list-style-type: none;
    margin: 0;
    padding: 0;
+
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
 .products-list-item {
@@ -68,6 +76,7 @@ img {
     margin: 2em;
     overflow: hidden;
     /* padding: 2em; */
+    max-width: 504px;
 }
 
 .product-card img {
@@ -102,5 +111,85 @@ img {
     box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
     margin: 2em;
     overflow: hidden;
+    padding: 1em;
+}
+
+/* a{
+	color: cornflowerblue;
+	:hover {
+		color: #ed1212;
+		cursor: pointer;
+	}
+} */
+
+.notification.is-primary.home{
+    border-radius: 50px;
+    background: #232121;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    margin: 2em;
+    overflow: hidden;
+    padding: 3em;
+    font-size: 1.3em;
+}
+
+.container.is-fluid.home{
+    border-radius: 50px;
+    background: #ebe7e7;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    /* margin: 2em; */
+    overflow: hidden;
+    padding: 1em;
+    margin: 5em 0;
+}
+
+body.has-navbar-fixed-top, html.has-navbar-fixed-top {
+    padding-top: 7.25rem;
+}
+
+.navbar{
+    padding: 2em 4em 2em 4em;
+}
+
+.columns{
+    margin-top: 3em;
+}
+
+.column{
+    align-self: center;
+}
+
+.cart-form{
+    padding: 2em;
+}
+
+.field.is-grouped {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.not-found{
+    text-align: center;
+}
+
+#Capa_1{
+    margin: 1em;
+}
+
+.btn-to-cart{
+    margin: 1em;
+    font-weight: bold;
+}
+
+.navbar-item a:hover {
+        background-color: cornflowerblue;
+      }
+
+.column.mission{align-self: auto;}
+
+h1.ossie{
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+    /* margin: 2em; */
     padding: 1em;
 }

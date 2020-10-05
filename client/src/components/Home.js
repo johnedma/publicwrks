@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getArt } from '../actions/art';
 import ProductCard from './ProductCard';
 import ProductsDisplay from './ProductsDisplay';
@@ -35,7 +35,14 @@ class Home extends React.Component {
     render() {
         return (
             <>
-
+                <Link to="/mission">
+                    <div className="container is-fluid home">
+                        <div className="notification is-primary home">
+                            <strong>publicWRKS</strong> is an innovative social change project that leverages histories greatest artists to pave the way for the youth of today.
+  Proceeds from our curated collection of products will go towards funding and developing art programs for children and young adults in underserved communities across the country.
+  </div>
+                    </div>
+                </Link>
                 <ProductsDisplay />
                 {/* <ProductsDisplay artistId={2} />
             <ProductsDisplay artistId={3} /> */}

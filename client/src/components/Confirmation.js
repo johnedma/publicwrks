@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Confirmation = ({ modal, order }) => {
-    debugger
+    // debugger
     // if (modal.false) return
 
     return (

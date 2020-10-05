@@ -15,13 +15,13 @@ const CartBox = () => {
     .reduce((item, total) => item + total, 0);
   console.log(itemQuantity)
   return (
-    <Fragment>
-      {/* <Link to='/cart' className='cart-box' onClick={() => dispatch(clearFilters())}> */}
+    <>
+
       <Link to='/cart' className='cart-box' >
-        <Cart height='30' width='30' color='cornflowerblue' />
-        <p>{itemQuantity} items in cart {total}$</p>
+        {/* <Cart height='30' width='30' /> */}
+        <p className="title">{itemQuantity} items in cart ${total}</p>
       </Link>
-    </Fragment>
+    </>
   )
 }
 

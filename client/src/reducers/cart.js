@@ -51,7 +51,7 @@ const cartReducer = (state = cartDefaultState, action) => {
             }
         case 'DECREMENT':
             let item = state.cart.find((item) => action.item.id === item.id);
-            debugger
+            // debugger
             if (item.quantity > 1) {
                 item.quantity -= 1;
                 const newTotal = state.total - item.price

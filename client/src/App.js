@@ -9,6 +9,7 @@ import UserList from './components/UsersList';
 import ProductDetail from './components/ProductDetail'
 import NotFound from './components/NotFound';
 import CartPage from './components/CartPage';
+import OurMission from './components/OurMission';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -40,16 +41,13 @@ function App() {
                     needLogin={needLogin}
                     component={Dashboard} />
                 <Route path="/users" component={UserList} />
-                {/* <UserList />
-                </Route> */}
+
                 <Route path="/art/:id" exact component={ProductDetail} />
-                {/* <ProductDetail />
-                </Route> */}
+                <Route path="/mission" component={OurMission} />
                 <Route path='/cart' component={CartPage} />
                 <Route path="/" exact component={Home} />
                 <Route component={NotFound} />
-                {/* <Home />
-                </Route> */}
+
             </Switch>
         </BrowserRouter>
     );

@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import shirt from '../imgs/blkshirt.png'
+import blkshirt from '../imgs/blkshirt.png'
+import whtshirt from '../imgs/whtshirt.jpg'
 import { placeOrder } from '../actions/order'
-// import './CartPage.scss';
 import uuid from 'uuid/v4';
-// import phoneImg from './../../product-2.png';
-// import { getCartState, getCartTotal } from '../actions/cart';
 import { addToCart, removeFromCart, decrementFromCart, clearCart } from '../actions/cart';
 import Confirmation from './Confirmation';
-// import CheckoutModal from '../CheckoutModal/CheckoutModal';
 
 const CartPage = () => {
   const items = useSelector(state => state.cart.cart);
@@ -33,21 +30,6 @@ const CartPage = () => {
 
 
 
-  //   const handleSubmit = async (e)  => {
-  //     e.preventDefault()
-
-  //     // const payload = this.state;
-  //     // payload.moves = [payload.move1, payload.move2];
-
-  //  const res = placeOrder(order)
-
-  //       // this.props.handleCreated(await response.json());
-  //     }
-  //   }
-
-
-
-
 
 
 
@@ -64,13 +46,13 @@ const CartPage = () => {
               items.length > 0 ?
 
                 items.map((item) => {
-                  return (
+                  return (<>
                     <div className="item columns" key={item.id}>
-                      <div className='product-card column'>
+                      <div className=' column'>
                         {/*  */}
                         <div className='product-card-shirt'>
                           <img
-                            src={shirt}
+                            src={whtshirt}
                             alt="T-Shirt"
                           />
                           <div className='product-card-shirt-art'>
@@ -85,17 +67,56 @@ const CartPage = () => {
                       {/*  */}
                       <div className="item--details column">
                         <p className="title">{item.title} by {item.artist}</p>
-                        <div className='block'>
-                          <p className="price">{item.price}$   ({item.price * item.quantity}$)</p>
-                          <div className="flex-row">
-                            <p className="quantity">Quantity: {item.quantity}</p>
-                            <div className='add' onClick={() => dispatch(addToCart(item))}>+ADD+</div>
-                            <div className='sub' onClick={() => dispatch(decrementFromCart(item))}>-SUB-</div>
+                        <div class="level">
+                          <div class="level-item has-text-centered">
+                            <div>
+                              <p class="heading">Per Unit</p>
+                              <p className="title">${item.price}   </p>
+
+
+                            </div>
                           </div>
+                          <div class="level-item has-text-centered">
+                            <div>
+                              <p className="heading">Quantity </p>
+                              <p className="title">{item.quantity}(${item.price * item.quantity})</p>
+
+                            </div>
+                          </div>
+
                         </div>
-                        <button className='remove' onClick={() => dispatch(removeFromCart(item))} >Remove</button>
+
+
+                      </div>
+
+                    </div>
+                    <div class="level">
+                      <div class="level-item has-text-centered">
+                        <div>
+                          <div className='title' onClick={() => dispatch(addToCart(item))}>+ADD+</div>
+
+
+                        </div>
+                      </div>
+                      <div class="level-item has-text-centered">
+                        <div>
+                          <div className='title' onClick={() => dispatch(decrementFromCart(item))}>-SUB-</div>
+                          {/* <p className="quantity">Quantity: {item.quantity}</p> */}
+                          {/* <p class="heading">Following</p>
+<p class="title">123</p> */}
+                        </div>
+                      </div>
+                      <div class="level-item has-text-centered">
+                        <div>
+                          <button className='title' onClick={() => dispatch(removeFromCart(item))} >Remove</button>
+                          {/* <p class="heading">Followers</p>
+                          <p class="title">456K</p> */}
+                        </div>
                       </div>
                     </div>
+                    {/*  */}
+
+                  </>
                   )
                 })
                 :
@@ -105,18 +126,19 @@ const CartPage = () => {
         </div>
       </div>
       <div className='column'>
-        <div >
+        <h2>My Cart</h2>
+        <div className="cart-form" >
           <div className="field" >
             <label className="label">Name</label>
             <div className="control">
-              <input className="input" type="text" placeholder="Text input" />
+              <input className="input is-success" type="text" placeholder="Text input" value="This Guy" />
             </div>
           </div>
 
           <div className="field">
-            <label className="label">Username</label>
+            <label className="label">Address</label>
             <div className="control has-icons-left has-icons-right">
-              <input className="input is-success" type="text" placeholder="Text input" value="bulma" />
+              <input className="input is-success" type="text" placeholder="Text input" value="875 Nimes Rd, Los Angeles, CA 90077" />
               <span className="icon is-small is-left">
                 <i className="fas fa-user"></i>
               </span>
@@ -124,83 +146,84 @@ const CartPage = () => {
                 <i className="fas fa-check"></i>
               </span>
             </div>
-            <p className="help is-success">This username is available</p>
+            {/* <p className="help is-success">This username is available</p> */}
           </div>
 
           <div className="field">
             <label className="label">Email</label>
             <div className="control has-icons-left has-icons-right">
-              <input className="input is-danger" type="email" placeholder="Email input" value="hello@" />
+              <input className="input is-success" type="email" placeholder="Email input" value="appassassin2020@gmail.com" />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope"></i>
               </span>
               <span className="icon is-small is-right">
-                <i className="fas fa-exclamation-triangle"></i>
+                <i className="fas fas fa-check"></i>
               </span>
             </div>
-            <p className="help is-danger">This email is invalid</p>
+            {/* <p className="help is-danger">This email is invalid</p> */}
           </div>
-
-          {/* <div className="field">
-            <label className="label">Subject</label>
-            <div className="control">
-              <div className="select">
-                <select>
-                  <option>Select dropdown</option>
-                  <option>With options</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
           <div className="field">
-            <label className="label">Message</label>
-            <div className="control">
-              <textarea className="textarea" placeholder="Textarea"></textarea>
+            <label className="label">Payment</label>
+            <div className="control has-icons-left has-icons-right">
+              <input className="input is-success" type="text" placeholder="Card input" value="4242 4242 4242 4242" />
+              <span className="icon is-small is-left">
+
+                <i className="fas fa-credit-card"></i>
+              </span>
+              <span className="icon is-small is-right">
+                <i className="fas fas fa-check"></i>
+              </span>
             </div>
+            {/* <p className="help is-danger">This email is invalid</p> */}
           </div>
 
-          <div className="field">
-            <div className="control">
-              <label className="checkbox">
-                <input type="checkbox" />
-                      I agree to the <a href="#">terms and conditions</a>
-              </label>
-            </div>
-          </div>
-
-          <div className="field">
-            <div className="control">
-              <label className="radio">
-                <input type="radio" name="question" />
-                        Yes
-    </label>
-              <label className="radio">
-                <input type="radio" name="question" />
-                          No
-    </label>
-            </div>
-          </div> */}
 
           <div className="field is-grouped">
+
             <div className="control">
-              <button className="button is-link">Submit</button>
+              <button className='button is-link' onClick={openModal} disabled={items.length === 0} >Buy Now!</button>
+
+              {/* <button className="button is-link">Submit</button> */}
             </div>
             <div className="control">
-              <button className="button is-link is-light">Cancel</button>
+              <button className='button is-link is-light' disabled={items.length === 0} onClick={() => { dispatch(clearCart()) }}>Clear Cart</button>
+
+              {/* <button className="button is-link is-light">Cancel</button> */}
             </div>
           </div>
-          <div className="cart-page--sidebar">
-            <h2>My Cart</h2>
 
-            <p className="total">Total: {total}$</p>
-            <Link to='/' className='go-back'>Go Back</Link>
-            <button className='clear-cart' disabled={items.length === 0} onClick={() => { dispatch(clearCart()) }}>Clear Cart</button>
-            <button className='buy-now' onClick={openModal} disabled={items.length === 0} >Buy Now!</button>
+          <div class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                {/* <p class="heading">Per Unit</p>
+                              <p className="title">${item.price}   </p>
 
+                              <p class="title">${total}</p> */}
+                <p className="title is-1">Total</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p className="title is-1">${total}</p>
+                {/* <p className="heading">Quantity </p>
+                              <p className="title">{item.quantity}(${item.price * item.quantity})</p> */}
 
-            {/* <button className='buy-now' disabled={items.length === 0} onClick={() => setModal()} >Buy Now!</button> */}
+              </div>
+            </div>
+
           </div>
+          {/* <div className="cart-page--sidebar">
+
+            <p class="title is-1">${total}</p>
+            <p class="subtitle is-3">Total</p> */}
+          {/* <p className="total">Total: {total}$</p> */}
+          {/* <Link to='/' className='go-back'>Go Back</Link> */}
+          {/* <button className='clear-cart' disabled={items.length === 0} onClick={() => { dispatch(clearCart()) }}>Clear Cart</button>
+            <button className='buy-now' onClick={openModal} disabled={items.length === 0} >Buy Now!</button> */}
+
+
+          {/* <button className='buy-now' disabled={items.length === 0} onClick={() => setModal()} >Buy Now!</button> */}
+          {/* </div> */}
         </div>
         {/* <CheckoutModal modal={modal} closeModal={closeModal} /> */}
         {<Confirmation modal={modal} order={order} />}

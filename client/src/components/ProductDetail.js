@@ -57,10 +57,31 @@ const ProductDetail = ({ match }) => {
             </div>
             <div className="column">
                 <h1> {product.description}</h1>
-                {product.title}
-                {/* {product.descripion} */}
-                {product.dated}
-                <AddToCart item={item} />
+                <div className="subtitle"> {product.title} </div>
+                <div class="level">
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p class="heading">Per Unit</p>
+                            <p className="title">$45  </p>
+
+
+                        </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p className="heading">Origin </p>
+                            <p className="title">{product.dated}</p>
+
+                        </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                        <div>
+
+
+                            <AddToCart item={item} />
+                        </div>
+                    </div>
+                </div>
             </div>
             {/* product custo div*/}
             {/* product descrip and price div inline with custo div + add to card  */}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import shirt from './../imgs/blkshirt.png'
-import ProductDetail from './ProductDetail';
+// import shirt from './../imgs/blkshirt.png'
+import shirt from './../imgs/whtshirt.jpg'
+// import ProductDetail from './ProductDetail';
 // useParams
 
 const ProductCard = ({ art }) => {
