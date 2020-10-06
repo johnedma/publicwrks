@@ -1,35 +1,72 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, Route } from 'react-router-dom';
 import blkshirt from '../imgs/blkshirt.png'
 import whtshirt from '../imgs/whtshirt.jpg'
-import { placeOrder } from '../actions/order'
 import uuid from 'uuid/v4';
 import { addToCart, removeFromCart, decrementFromCart, clearCart } from '../actions/cart';
 import Confirmation from './Confirmation';
+import Home from './Home';
 
 const CartPage = () => {
   const items = useSelector(state => state.cart.cart);
   const total = useSelector(state => state.cart.total);
   const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState("875 Nimes Rd, Los Angeles, CA 90077");
+  const [email, setEmail] = useState("appassassin2020@gmail.com");
+  const [card, setCard] = useState("4242 4242 4242 4242");
+
+  const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState("modal");
+  const [order, setOrder] = useState({});
+  const updateName = (e) => setName(e.target.value);
+  // const openModal = () => setModal("modal is-active");
+  const closeModal = () => {
+    setName('')
+    setOrder({});
+    dispatch(clearCart())
 
-  const openModal = () => setModal("modal is-active");
-  const closeModal = () => setModal(false);
 
-  let order = {
-    confId: uuid().substring(0, 7),
-    total,
-    items
+  }
+
+  let customer = {
+    name,
+    address,
+    email
+  }
+
+
+  const placeOrder = () => {
+    let order = {
+      confId: uuid().substring(0, 7),
+      total,
+      items,
+      customer
+    }
+    setLoading(true)
+
+    fetch(`/api/orders`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(order)
+    })
+      .then(res => {
+        if (res.ok) {
+          console.log(res)
+          console.log("successful order cartpage line 67")
+          // dispatchEvent(clearcart)
+          return
+        }
+        throw res;
+      })
+      .then(setOrder(order))
+    setLoading(false)
+
   }
   console.log(order)
-
-
-
-
-
-
-
 
 
 
@@ -78,8 +115,8 @@ const CartPage = () => {
                           </div>
                           <div class="level-item has-text-centered">
                             <div>
-                              <p className="heading">Quantity </p>
-                              <p className="title">{item.quantity}(${item.price * item.quantity})</p>
+                              <p className="heading">QTY (${item.price * item.quantity})</p>
+                              <p className="title">{item.quantity}</p>
 
                             </div>
                           </div>
@@ -101,16 +138,13 @@ const CartPage = () => {
                       <div class="level-item has-text-centered">
                         <div>
                           <div className='title' onClick={() => dispatch(decrementFromCart(item))}>-SUB-</div>
-                          {/* <p className="quantity">Quantity: {item.quantity}</p> */}
-                          {/* <p class="heading">Following</p>
-<p class="title">123</p> */}
+
                         </div>
                       </div>
                       <div class="level-item has-text-centered">
                         <div>
                           <button className='title' onClick={() => dispatch(removeFromCart(item))} >Remove</button>
-                          {/* <p class="heading">Followers</p>
-                          <p class="title">456K</p> */}
+
                         </div>
                       </div>
                     </div>
@@ -131,14 +165,14 @@ const CartPage = () => {
           <div className="field" >
             <label className="label">Name</label>
             <div className="control">
-              <input className="input is-success" type="text" placeholder="Text input" value="This Guy" />
+              <input className="input is-success" type="text" placeholder="Please Enter Your Name And Submit" value={name} onChange={updateName} />
             </div>
           </div>
 
           <div className="field">
             <label className="label">Address</label>
             <div className="control has-icons-left has-icons-right">
-              <input className="input is-success" type="text" placeholder="Text input" value="875 Nimes Rd, Los Angeles, CA 90077" />
+              <input className="input is-success" type="text" placeholder="Text input" value={address} />
               <span className="icon is-small is-left">
                 <i className="fas fa-user"></i>
               </span>
@@ -152,7 +186,7 @@ const CartPage = () => {
           <div className="field">
             <label className="label">Email</label>
             <div className="control has-icons-left has-icons-right">
-              <input className="input is-success" type="email" placeholder="Email input" value="appassassin2020@gmail.com" />
+              <input className="input is-success" type="email" placeholder="Email input" value={email} />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope"></i>
               </span>
@@ -165,7 +199,7 @@ const CartPage = () => {
           <div className="field">
             <label className="label">Payment</label>
             <div className="control has-icons-left has-icons-right">
-              <input className="input is-success" type="text" placeholder="Card input" value="4242 4242 4242 4242" />
+              <input className="input is-success" type="text" placeholder="Card input" value={card} />
               <span className="icon is-small is-left">
 
                 <i className="fas fa-credit-card"></i>
@@ -181,7 +215,7 @@ const CartPage = () => {
           <div className="field is-grouped">
 
             <div className="control">
-              <button className='button is-link' onClick={openModal} disabled={items.length === 0} >Buy Now!</button>
+              <button className='button is-link' onClick={placeOrder} disabled={items.length === 0} >Buy Now!</button>
 
               {/* <button className="button is-link">Submit</button> */}
             </div>
@@ -222,16 +256,14 @@ const CartPage = () => {
             <button className='buy-now' onClick={openModal} disabled={items.length === 0} >Buy Now!</button> */}
 
 
-          {/* <button className='buy-now' disabled={items.length === 0} onClick={() => setModal()} >Buy Now!</button> */}
-          {/* </div> */}
         </div>
-        {/* <CheckoutModal modal={modal} closeModal={closeModal} /> */}
-        {<Confirmation modal={modal} order={order} />}
+
+        {order.confId &&
+          <Confirmation closeModal={closeModal} order={order} />
+        }
       </div>
     </div>
   )
 }
 
 export default CartPage
-
-// <button className='go-back' onClick={() => { history.push('/') }}>Go Back</button>

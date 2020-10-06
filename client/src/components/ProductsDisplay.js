@@ -7,21 +7,7 @@ import { connect } from "react-redux";
 
 
 class ProductsDisplay extends React.Component {
-    componentDidMount() {
-        // const dispatch = useDispatch();
-        // dispatch(getArt(artistId))
-        // this.props.getArt(this.props.artistId)
-        // debugger
-    }
-    // fetch from here per category
-    // const {artistId} = useParams();
-    // const arte = useSelector(state => state.arte)
 
-    // useEffect(() => {
-    //     dispatch(getArt(artistId))
-    // }, [dispatch])
-    // // console.log(arte)
-    // debugger
 
     render() {
         if (Object.entries(this.props.art).length === 0) return null

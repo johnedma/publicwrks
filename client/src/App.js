@@ -20,18 +20,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 )
 
 function App() {
-    // const [loaded, setLoaded] = useState(false);
-    // const dispatch = useDispatch();
+
     const needLogin = useSelector(state => !state.authentication.token);
 
-    // useEffect(() => {
-    //   setLoaded(true);
-    //   dispatch(loadToken());
-    // }, [dispatch]);
-
-    // if (!loaded) {
-    //   return null;
-    // }
     return (
         <BrowserRouter>
             <Navbar />

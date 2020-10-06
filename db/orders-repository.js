@@ -27,8 +27,9 @@ const { Order } = require('./models');
 
 async function create(details) {
     const order = await Order.create(details);
-    player.setPassword(details.password);
-    return order.number;
+    // player.setPassword(details.password);
+    console.log(`New Order ID: ${order.id}`)
+    return order;
 }
 
 

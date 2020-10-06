@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-
+const { authenticated } = require('./security-utils');
 const router = express.Router();
 
 router.get('/', authenticated, asyncHandler(async function (_req, res) {
@@ -9,8 +9,10 @@ router.get('/', authenticated, asyncHandler(async function (_req, res) {
 }));
 
 router.post('/', asyncHandler(async function (req, res, next) {
-
-
-    const id = await OrderRepository.create(req.body, req.player);
-    return res.json({ id });
+    console.log("via 0rders post route")
+    console.log(req.body)
+    // const order = await OrderRepository.create(req.body);
+    // return res.json(order);
+    res.status(200).send("SUCCESSFUL POST!")
 }));
+module.exports = router;

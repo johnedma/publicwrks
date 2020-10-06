@@ -123,6 +123,7 @@ img {
 } */
 
 .notification.is-primary.home{
+    transition: box-shadow .3s;
     border-radius: 50px;
     background: #232121;
     box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
@@ -131,6 +132,11 @@ img {
     padding: 3em;
     font-size: 1.3em;
 }
+
+.notification.is-primary.home:hover {
+    box-shadow: 0 0 111px rgba(33,33,33,.2);
+    box-shadow: 0 0 111px rgb(249 139 104)
+  }
 
 .container.is-fluid.home{
     border-radius: 50px;
@@ -192,4 +198,11 @@ h1.ossie{
     box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
     /* margin: 2em; */
     padding: 1em;
+    background:papayawhip;
+}
+
+.cart-box p {
+    text-transform: uppercase;
+    border: solid;
+    padding: 5px;
 }
