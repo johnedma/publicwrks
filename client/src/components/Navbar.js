@@ -9,7 +9,7 @@ const Navbar = () =>
             <NavLink to="/" activeClassName="active"><h1>publicWRKS</h1></NavLink>
             {/* <NavLink to="/users" activeClassName="active">Users</NavLink> */}
         </div>
-        <div className="navbar-menu">
+        <div className="navbar-menu is-active">
             <div className="navbar-end">
                 {/* <div className="navbar-item">
                     <NavLink to="/OurMission">The Mission</NavLink>

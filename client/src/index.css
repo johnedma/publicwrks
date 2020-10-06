@@ -185,8 +185,15 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
     margin: 1em;
     font-weight: bold;
 }
+.navbar.is-fixed-top{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-.navbar-item a:hover {
+
+
+.navbar-item p:hover {
         background-color: cornflowerblue;
       }
 

@@ -25,7 +25,7 @@ const Confirmation = ({ modal, order, closeModal }) => {
                 send an update when your order has shipped.
                 </section>
                     <footer className="modal-card-foot">
-                        <Link to="/"> <button className="button is-success" onClick={closeModal}>Save changes</button></Link>
+                        <Link to="/"> <button className="button is-success" onClick={closeModal}>Thanks!</button></Link>
                     </footer>
                 </div>
             </div>
