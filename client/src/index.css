@@ -14,7 +14,7 @@ body {
 
 h1 {
    font-family: 'Nunito', sans-serif;
-   font-size: 2em;
+   font-size: 1.5em;
    font-weight: 900;
 }
 
@@ -114,14 +114,6 @@ img {
     padding: 1em;
 }
 
-/* a{
-	color: cornflowerblue;
-	:hover {
-		color: #ed1212;
-		cursor: pointer;
-	}
-} */
-
 .notification.is-primary.home{
     transition: box-shadow .3s;
     border-radius: 50px;
@@ -130,7 +122,7 @@ img {
     margin: 2em;
     overflow: hidden;
     padding: 3em;
-    font-size: 1.3em;
+    /* font-size: 1.3em; */
 }
 
 .notification.is-primary.home:hover {
@@ -188,7 +180,7 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 .navbar.is-fixed-top{
     display: inline-flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
 }
 
 
@@ -212,4 +204,11 @@ h1.ossie{
     text-transform: uppercase;
     border: solid;
     padding: 5px;
+    font-size: 1em;
+}
+
+@media (max-width:540px) {
+    .navbar{
+        padding: 2em 1em 2em 1em;
+    }
 }
