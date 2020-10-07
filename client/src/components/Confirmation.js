@@ -21,8 +21,8 @@ const Confirmation = ({ modal, order, closeModal }) => {
                         </Link>
                     </header>
                     <section className="modal-card-body">
-                        Your order number is <b>{order.confId}</b> We have emailed your order confirmation, and will
-                send an update when your order has shipped.
+                        Hey, <em>{order.customer.name}</em>! Your order number is <b>{order.confId}</b>, we've emailed your confirmation and will
+                send an update when your order has been shipped.
                 </section>
                     <footer className="modal-card-foot">
                         <Link to="/"> <button className="button is-success" onClick={closeModal}>Thanks!</button></Link>
