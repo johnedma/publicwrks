@@ -141,7 +141,6 @@ img {
 .container.is-fluid.home{
     border-radius: 50px;
     background: #ebe7e7;
-    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
     overflow: hidden;
 
 }
@@ -176,6 +175,11 @@ div.control button{
     font-weight: bold;
     border-color: #d5d3d3b3;
 }
+
+div.control button:active{
+border: inset;
+}
+
 .level-item.has-text-centered .summary.title{
     font-size:1rem;
     cursor: pointer;
@@ -195,6 +199,7 @@ div.control button{
     font-weight: bold;
 
 }
+
 .navbar.is-fixed-top{
     display: inline-flex;
     justify-content: space-between;

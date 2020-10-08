@@ -12,7 +12,7 @@ class ProductsDisplay extends React.Component {
     render() {
         if (Object.entries(this.props.art).length === 0) return null
 
-        console.log(`PRODUCTDISPLAY: ${this.props.art}`);
+        // console.log(`PRODUCTDISPLAY: ${this.props.art}`);
 
         return (
             <ul className='products-list'>
