@@ -130,25 +130,24 @@ const CartPage = () => {
                     <div class="level">
                       <div class="level-item has-text-centered">
                         <div>
-                          <div className='title' onClick={() => dispatch(addToCart(item))}>+ADD+</div>
+                          <div className='title summary' onClick={() => dispatch(addToCart(item))}>+ADD+</div>
 
 
                         </div>
                       </div>
                       <div class="level-item has-text-centered">
                         <div>
-                          <div className='title' onClick={() => dispatch(decrementFromCart(item))}>-SUB-</div>
+                          <div className='title summary' onClick={() => dispatch(decrementFromCart(item))}>-SUB-</div>
 
                         </div>
                       </div>
                       <div class="level-item has-text-centered">
                         <div>
-                          <button className='title' onClick={() => dispatch(removeFromCart(item))} >Remove</button>
+                          <div className='title summary' onClick={() => dispatch(removeFromCart(item))} >Remove</div>
 
                         </div>
                       </div>
                     </div>
-                    {/*  */}
 
                   </>
                   )
@@ -180,7 +179,6 @@ const CartPage = () => {
                 <i className="fas fa-check"></i>
               </span>
             </div>
-            {/* <p className="help is-success">This username is available</p> */}
           </div>
 
           <div className="field">
@@ -194,7 +192,6 @@ const CartPage = () => {
                 <i className="fas fas fa-check"></i>
               </span>
             </div>
-            {/* <p className="help is-danger">This email is invalid</p> */}
           </div>
           <div className="field">
             <label className="label">Payment</label>
@@ -208,52 +205,37 @@ const CartPage = () => {
                 <i className="fas fas fa-check"></i>
               </span>
             </div>
-            {/* <p className="help is-danger">This email is invalid</p> */}
           </div>
 
 
           <div className="field is-grouped">
 
             <div className="control">
-              <button className='button is-link' onClick={placeOrder} disabled={items.length === 0} >Buy Now!</button>
+              <button className='button is-link' onClick={placeOrder} disabled={items.length === 0} >Buy Now</button>
 
-              {/* <button className="button is-link">Submit</button> */}
             </div>
             <div className="control">
               <button className='button is-link is-light' disabled={items.length === 0} onClick={() => { dispatch(clearCart()) }}>Clear Cart</button>
 
-              {/* <button className="button is-link is-light">Cancel</button> */}
             </div>
           </div>
 
           <div class="level">
             <div class="level-item has-text-centered">
               <div>
-                {/* <p class="heading">Per Unit</p>
-                              <p className="title">${item.price}   </p>
 
-                              <p class="title">${total}</p> */}
                 <p className="title is-1">Total</p>
               </div>
             </div>
             <div class="level-item has-text-centered">
               <div>
                 <p className="title is-1">${total}</p>
-                {/* <p className="heading">Quantity </p>
-                              <p className="title">{item.quantity}(${item.price * item.quantity})</p> */}
+
 
               </div>
             </div>
 
           </div>
-          {/* <div className="cart-page--sidebar">
-
-            <p class="title is-1">${total}</p>
-            <p class="subtitle is-3">Total</p> */}
-          {/* <p className="total">Total: {total}$</p> */}
-          {/* <Link to='/' className='go-back'>Go Back</Link> */}
-          {/* <button className='clear-cart' disabled={items.length === 0} onClick={() => { dispatch(clearCart()) }}>Clear Cart</button>
-            <button className='buy-now' onClick={openModal} disabled={items.length === 0} >Buy Now!</button> */}
 
 
         </div>

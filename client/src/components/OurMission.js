@@ -8,7 +8,7 @@ const OurMission = () => {
                 <img src="https://bit.ly/3nmGFJ4" />
             </div>
             <h1> Closing The Achievement Gap</h1>
-            <div className="content is-medium">
+            <div className="content">
                 <div className="columns"><div className="column ">
 
                     A 2012 report from the National Endowment for the Arts showed that, by nearly every indicator studied, a student from a low-socioeconomic (SES) background with a high-arts educational experience significantly outperformed peers from a low-arts, low-SES background, closing (and in some cases eliminating) the gap that often appears between low-SES students and their more advantaged peers.
