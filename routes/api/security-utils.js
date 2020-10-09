@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 const uuid = require('uuid').v4;
 
 const { jwtConfig: { secret, expiresIn } } = require('../../config');
-// const PlayerRepository = require('../../db/player-repository');
 const UserRepository = require('../../db/user-repository')
 
 function generateToken(user) {

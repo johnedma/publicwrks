@@ -66,6 +66,8 @@ img {
    display: inline-block;
    width: 100%;
    max-width: 300px;
+
+
 }
 
 .product-card{
@@ -76,7 +78,11 @@ img {
     overflow: hidden;
     /* padding: 2em; */
     max-width: 504px;
+    transition: box-shadow .08s linear,min-width .15s cubic-bezier(0.4,0.0,0.2,1);
 }
+
+.products-list-item div.product-card:hover{
+    box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);}
 
 .product-card img {
    display: block;
@@ -139,9 +145,11 @@ img {
   }
 
 .container.is-fluid.home{
-    border-radius: 50px;
+    border-radius: 35px;
     background: #ebe7e7;
     overflow: hidden;
+    margin-bottom: 1em;
+    padding: 0;
 
 }
 
